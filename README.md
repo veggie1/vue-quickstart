@@ -1,6 +1,6 @@
 # vue-quickstart
 
-This template should help get you started developing with Vue 3 in Vite.
+This is based on [this MDN Tutorial](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Frameworks_libraries/Vue_getting_started)
 
 ## Recommended IDE Setup
 
