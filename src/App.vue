@@ -1,11 +1,13 @@
 <script lang="ts">
 import { nanoid } from 'nanoid'
 import ToDoItem from './components/ToDoItem.vue'
+import ToDoForm from './components/ToDoForm.vue'
 
 export default {
   name: 'app',
   components: {
     ToDoItem,
+    ToDoForm,
   },
   data() {
     return {
@@ -25,12 +27,22 @@ export default {
       ],
     }
   },
+  methods: {
+    addToDo(toDoLabel: string) {
+      this.ToDoItems.push({
+        id: `todo-${nanoid()}`,
+        label: toDoLabel,
+        done: false,
+      })
+    },
+  },
 }
 </script>
 
 <template>
   <div id="app">
-    <h1>To-Do List</h1>
+    <h1>My To-Do List</h1>
+    <to-do-form @todo-added="addToDo"></to-do-form>
     <ul>
       <li v-for="item in ToDoItems" :key="item.id">
         <to-do-item :label="item.label" :done="item.done" :id="item.id"></to-do-item>
